@@ -1,17 +1,19 @@
-from flask import Flask
+from flask import Flask, render_template
 app = Flask(__name__)
 
 @app.route("/")
 def main_page():
-    return "Hello MTV welcome to my crib"
+    return render_template("base.html")
+
+
 
 @app.route("/more")
 def basic_info():
-    return "Hey, you privy devo. This is some more info about me!"
+    return render_template("info.html")
 
 @app.route("/hobbies")
 def hobbies():
-    return "football big sibs etc"
+    return render_template("hobbies.html")
 
 if __name__ == "__main__":
     app.debug = True

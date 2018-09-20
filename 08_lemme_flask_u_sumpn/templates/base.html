@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      {% if title %}
+      <title>{{ title }} - My Crib</title>
+      {% else %}
+      <title>Welcome to My Crib</title>
+      {% endif %}
+    </head>
+    <body>
+        <h1>Home page of information and stuff</h1>
+        <div>Welcome to My Crib: <a href="/more">More</a>
+        <a href="/hobbies">Hobbies</a></div>
+        <p>Adios Amigos! Welcome to my Home Page</p>
+        <p>Notice the conveniently placed links and click on them to learn a little bit more about me!</p>
+        <hr>
+        {% block content %}{% endblock %}
+    </body>
+</html>

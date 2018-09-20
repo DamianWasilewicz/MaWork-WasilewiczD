@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      {% if title %}
+      <title>{{ title }} - My Crib</title>
+      {% else %}
+      <title>Welcome to My Crib</title>
+      {% endif %}
+    </head>
+    <body>
+        <h1>Home page of information and stuff</h1>
+        <div>Welcome to My Crib: <a href="/">Home</a>
+        <a href="/hobbies">Hobbies</a></div>
+        <p>Hey guys! My name is Damian Jan Wasilewicz, I am 5'10" and 218 lbs, I like to play football and also to do nerdy, Stuy things</p>
+        <p>Feel free to navigate back to the home page or to the hobbies page!</p>
+        <hr>
+        {% block content %}{% endblock %}
+    </body>
+</html>
