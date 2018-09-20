@@ -1,3 +1,7 @@
+#Damian Wasilewicz
+#SoftDev1 Pd6
+#K #08: Fill Yer Flask
+#2018-09-19
 from flask import Flask, render_template
 app = Flask(__name__)
 
