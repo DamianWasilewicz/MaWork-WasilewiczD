@@ -10,6 +10,7 @@ app = Flask(__name__)
 
 #creates dictionary (empty)
 OCCLIST = {}
+#creates dictionary with only occupation name
 randlist = {}
 #takes in file, returns random occupation with weighted probability
 def randomocc(filename):
@@ -42,9 +43,9 @@ def randomO():
         #compares random number to % we're up to;
         #if current percentage is greater than randy, return key
         if count >= randy:
-            return count
+            return key[0]
         #if not, add counter to current percentage
-            count += randlist[key[0]]
+        count += randlist[key[0]]
 #route for main page
 @app.route("/")
 def main_page():
@@ -55,7 +56,9 @@ def main_page():
 def occupy():
     #calls rendertemplate and passes OCCLIST and the random occupation as arguemnts
     return render_template("occupations.html",
+    #list used to create table
     table = randomocc("occupations.csv"),
+    #value used to find random occupation to display
     rand = randomO())
 
 if __name__ == "__main__":
