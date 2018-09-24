@@ -4,14 +4,32 @@
 Occupations
 {%endblock%}
 
-
 {%block header%}
 Prepare to decide your future career!
 {%endblock%}
 
-
-
-
 {%block content%}
-{{table}}
+
+<head>
+<H2>Cool job of the day: {{rand}}</H2>
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+</head>
+<table>
+<tr>
+<th>Occupations</th>
+<th>Percentage</th>
+<th>Links</th>
+</tr>
+{% for key in table %}
+	<tr>
+	<td>{{key}}</td>
+	<td>{{table[key]}}</td>
+	<td>{{lnks[key]}}</td>
+	</tr>
+{% endfor %}
+</table>
 {%endblock%}
