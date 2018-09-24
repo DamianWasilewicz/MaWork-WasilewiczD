@@ -27,8 +27,8 @@ table, th, td {
 {% for key in table %}
 	<tr>
 	<td>{{key}}</td>
-	<td>{{table[key]}}</td>
-	<td>{{lnks[key]}}</td>
+	<td>{{table[key][0]}}</td>
+	<td>{{table[key][1]}}</td>
 	</tr>
 {% endfor %}
 </table>
