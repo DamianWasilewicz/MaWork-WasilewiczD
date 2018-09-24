@@ -22,7 +22,7 @@ def randomocc(filename):
 
     red = file.read()
     #split by lines, excluding title and empty line at bottom
-    lines = red.split("\n")[1:-1]
+    lines = red.split("\n")[1:-2]
     read = csv.reader(lines)
     #iterates, adds key and weight to OCCLIST
     for r in read:
@@ -30,11 +30,9 @@ def randomocc(filename):
         value = [float(r[1]), r[2]]
         OCCLIST[r[0]] = value
     #to be polite
-    del OCCLIST['Total']
-    del randlist['Total']
     file.close()
     return OCCLIST
-def randomO(lists):
+def randomO():
     #random number
     randy = random.uniform(0, 99.8)
     #counter keeps track of what percentage we're up to
@@ -43,8 +41,8 @@ def randomO(lists):
     for key in randlist.items():
         #compares random number to % we're up to;
         #if current percentage is greater than randy, return key
-        if count + randlist[key[0]] >= randy:
-            return key
+        if count >= randy:
+            return count
         #if not, add counter to current percentage
             count += randlist[key[0]]
 #route for main page
@@ -55,9 +53,10 @@ def main_page():
 
 @app.route("/occupations")
 def occupy():
+    #calls rendertemplate and passes OCCLIST and the random occupation as arguemnts
     return render_template("occupations.html",
     table = randomocc("occupations.csv"),
-    rand = randomO(randlist))
+    rand = randomO())
 
 if __name__ == "__main__":
     app.debug = True
