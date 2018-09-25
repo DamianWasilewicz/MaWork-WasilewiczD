@@ -13,7 +13,7 @@ OCCLIST = {}
 #creates dictionary with only occupation name
 randlist = {}
 #takes in file, returns random occupation with weighted probability
-def randomocc(filename):
+def randomOcc(filename):
     #opens file and reads it
     try:
         file = open(filename, "r")
@@ -27,40 +27,24 @@ def randomocc(filename):
     read = csv.reader(lines)
     #iterates, adds key and weight to OCCLIST
     for r in read:
-        randlist[r[0]] = float(r[1])
+        temp = float(r[1]) * 10
+        randlist[r[0]] = int(temp)
         value = [float(r[1]), r[2]]
         OCCLIST[r[0]] = value
     #to be polite
     file.close()
     return OCCLIST
-def randomO():
+
+def randomNum(lists):
     #random number
-    randy = random.uniform(0, 99.8)
+    randy = random.randint(0, 998)
     #counter keeps track of what percentage we're up to
-    count = 0
+    counter = 0
     #returns key based with weighted probability
-    for key in randlist.items():
+    for key in lists.items():
         #compares random number to % we're up to;
         #if current percentage is greater than randy, return key
-        if count >= randy:
+        counter+= float(key[1])
+        if counter >= randy:
             return key[0]
         #if not, add counter to current percentage
-        count += randlist[key[0]]
-#route for main page
-@app.route("/")
-def main_page():
-    #loads html template
-    return render_template("home.html")
-
-@app.route("/occupations")
-def occupy():
-    #calls rendertemplate and passes OCCLIST and the random occupation as arguemnts
-    return render_template("occupations.html",
-    #list used to create table
-    table = randomocc("occupations.csv"),
-    #value used to find random occupation to display
-    rand = randomO())
-
-if __name__ == "__main__":
-    app.debug = True
-    app.run()
