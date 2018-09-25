@@ -21,7 +21,7 @@ def occupy():
     #calls rendertemplate and passes OCCLIST and the random occupation as arguemnts
     return render_template("occupations.html",
     #list used to create table
-    table = ErlenmeyerFlasks.randomOcc("occupations.csv"),
+    table = ErlenmeyerFlasks.randomOcc("data/occupations.csv"),
     #value used to find random occupation to display
     rand = ErlenmeyerFlasks.randomNum(ErlenmeyerFlasks.randlist))
 
