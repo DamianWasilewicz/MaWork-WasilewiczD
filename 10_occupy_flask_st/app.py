@@ -2,12 +2,15 @@
 #SoftDev1 pd6
 #K #10: Jinja Tuning
 #2018-09-23
+#import flask, template, random, and file reading necessities
 from flask import Flask, render_template
 import csv, random
 from csv import reader
+#import functions and dictionary from ErlenmeyerFlasks.py
 from ErlenmeyerFlasks import randomOcc, randomNum, randlist
 app = Flask(__name__)
 
+#home page
 @app.route("/")
 def main_page():
     #loads html template
