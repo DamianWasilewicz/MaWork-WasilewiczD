@@ -53,4 +53,4 @@ def randomNum(lists):
         counter+= float(key[1])
         if counter >= randy:
             return key[0]
-        #if not, add counter to current percentage
+#if not, add counter to current percentage

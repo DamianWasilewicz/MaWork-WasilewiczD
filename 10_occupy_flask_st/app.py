@@ -7,7 +7,7 @@ from flask import Flask, render_template
 import csv, random
 from csv import reader
 #import functions and dictionary from ErlenmeyerFlasks.py
-from ErlenmeyerFlasks import randomOcc, randomNum, randlist
+from util import ErlenmeyerFlasks
 app = Flask(__name__)
 
 #home page
@@ -21,9 +21,9 @@ def occupy():
     #calls rendertemplate and passes OCCLIST and the random occupation as arguemnts
     return render_template("occupations.html",
     #list used to create table
-    table = randomOcc("occupations.csv"),
+    table = ErlenmeyerFlasks.randomOcc("occupations.csv"),
     #value used to find random occupation to display
-    rand = randomNum(randlist))
+    rand = ErlenmeyerFlasks.randomNum(ErlenmeyerFlasks.randlist))
 
 if __name__ == "__main__":
     app.debug = True
