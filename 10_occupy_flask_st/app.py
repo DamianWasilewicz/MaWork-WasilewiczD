@@ -16,6 +16,7 @@ def main_page():
     #loads html template
     return render_template("home.html")
 
+
 @app.route("/occupations")
 def occupy():
     #calls rendertemplate and passes OCCLIST and the random occupation as arguemnts
@@ -24,6 +25,7 @@ def occupy():
     table = ErlenmeyerFlasks.randomOcc("data/occupations.csv"),
     #value used to find random occupation to display
     rand = ErlenmeyerFlasks.randomNum(ErlenmeyerFlasks.randlist))
+
 
 if __name__ == "__main__":
     app.debug = True
