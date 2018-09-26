@@ -11,20 +11,18 @@ from csv import reader
 app = Flask(__name__)
 
 
-#creates dictionary (empty)
+
 OCCLIST = {}
-#creates dictionary with only occupation name
 randlist = {}
+
 #takes in file, returns random occupation with weighted probability
 def randomOcc(filename):
     #opens file and reads it
     try:
         file = open(filename, "r")
-    #deals with file not found
     except:
         print("file not found")
         return 0
-    #reads file
     red = file.read()
     #split by lines, excluding title and empty line at bottom
     lines = red.split("\n")[1:-2]
