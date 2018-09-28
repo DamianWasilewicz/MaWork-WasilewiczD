@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Form Page
+{%endblock%}
+
+{% block header %}
+<center> Welcome to the Form page! <center>
+{% endblock %}
+
+
+{% block content %}
+  <center>
+    <h2> Thank you sincerely, dear {{first}} {{last}}, for submitting the form </h2>
+    <h2> It means a lot to me </h2> <br> 
+    Info about your action: <br> <br> <br>
+    Username: <b> {{ first }} {{ last }} </b> <br> <br> <br>
+    Request method used: {{request}} <br> <br> <br>
+    See something wrong? Feel free to <a href="/"> try again</a>
+  </center>
+{% endblock %}

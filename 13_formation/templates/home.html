@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+HomePage
+{%endblock%}
+
+{% block header %}
+<center>Welcome to the Home page! Feel free to fill out the form below</center>
+{% endblock %}
+
+{% block content %}
+<center>
+<form action="/auth">
+  First name:<br>
+  <input type="text" name="first"><br>
+  Last name:<br>
+  <input type="text" name="last"><br><br>
+  <input type="submit" value="Submit">
+</form>
+</center>
+{% endblock %}
