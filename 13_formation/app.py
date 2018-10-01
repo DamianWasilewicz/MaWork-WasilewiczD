@@ -11,7 +11,7 @@ app = Flask(__name__)
 def home():
     return render_template("home.html")
 
-@app.route("/auth")
+@app.route("/auth", methods = ["GET", "POST"])
 def authenticate():
     print(app)
     #gets arguments from request, which contains inputted information
@@ -20,8 +20,8 @@ def authenticate():
     print(request.args)
     print(request.headers)
     return render_template("user.html",
-                            first = request.args['first'],
-                            last = request.args['last'],
+                            first = request.form['first'],
+                            last = request.form['last'],
                             request = request.method)
 
 
