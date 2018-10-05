@@ -1,6 +1,6 @@
 #The Wicked W's - Jeffrey Wu & Damian Wasilewicz
 #SoftDev1 pd0
-#SQLITE3 BASICS
+#K #16: No Trouble  
 #2018-10-04
 
 import sqlite3   #enable control of an sqlite database
