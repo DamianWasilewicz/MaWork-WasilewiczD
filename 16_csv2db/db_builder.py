@@ -29,14 +29,34 @@ def makeTable(filename):
             for info in rec.keys():
                 comm2 += "'" + rec[info] + "', " #add each column of data to statement
             c.execute(comm2[:len(comm2) - 2] + ")") #execute command
-c.execute("DROP TABLE peeps;") # Gets rid of peeps table if it already exists
-c.execute("DROP TABLE courses;") # Gets rid of courses table if it already exists
-makeTable("peeps.csv")
-makeTable("courses.csv") #run for both csv files
-c.execute("SELECT * FROM courses")
-print(c.fetchall())
-##c.execute("SELECT * FROM courses")
-##print(c.fetchall()) #print data from each table
+f = True
+if f:
+    c.execute("DROP TABLE peeps;") # Gets rid of peeps table if it already exists
+    c.execute("DROP TABLE courses;")
+    c.execute("DROP TABLE occupations;") # Gets rid of courses table if it already exists
+    makeTable("peeps.csv")
+    makeTable("courses.csv")
+    makeTable("occupations.csv") #run for both csv files
+    c.execute("SELECT * FROM courses")
+    print(c.fetchall())
+    c.execute("SELECT * FROM peeps")
+    print(c.fetchall()) #print data from each table
+    c.execute("SELECT * FROM occupations")
+    print(c.fetchall())
+    f = False
+else:
+    c.execute("DROP TABLE peeps;") # Gets rid of peeps table if it already exists
+    c.execute("DROP TABLE courses;")
+    c.execute("DROP TABLE occupations;") # Gets rid of courses table if it already exists
+    makeTable("peeps.csv")
+    makeTable("courses.csv")
+    makeTable("occupations.csv") #run for both csv files
+    c.execute("SELECT * FROM courses")
+    print(c.fetchall())
+    c.execute("SELECT * FROM peeps")
+    print(c.fetchall()) #print data from each table
+    c.execute("SELECT * FROM occupations")
+    print(c.fetchall()) #print data from each table
 
 
 db.commit() #save changes
