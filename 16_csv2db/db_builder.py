@@ -5,6 +5,13 @@
 
 import sqlite3   #enable control of an sqlite database
 import csv       #facilitates CSV I/O
+import os        #for deleting discobandit
+
+
+file = "discobandit";
+
+## If file exists, delete it ##
+#os.remove(file)
 
 
 DB_FILE = "discobandit.db"
@@ -12,51 +19,58 @@ DB_FILE = "discobandit.db"
 db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
 c = db.cursor()               #facilitate db ops
 
-def makeTable(filename):
-    with open(filename, 'r') as csvfile: # open csv file
-        courses = csv.DictReader(csvfile) #read it
-        fir = 0 #prevents it from being run after first time
-        for rec in courses:
-            if fir == 0:
-                comm = "CREATE TABLE " + filename[:len(filename) - 4] + " (" #initialize beginning of create statement
-                for col in rec.keys():
-                    comm += "'" + col + "' BLOB, " #BLOB generically typed
-                c.execute(comm[:len(comm) - 2] + ")")
-                fir = 1; #make sure it does not run again
-            comm2 = "INSERT INTO " + filename[:len(filename) - 4] + " VALUES (" #initialize insert statement with table name
-            for info in rec.keys():
-                comm2 += "'" + rec[info] + "', " #add each column of data to statement
-            c.execute(comm2[:len(comm2) - 2] + ")") #execute command with string
-f = True
-#to deal with error where it sometimes returns error sahing table already exists and skmetimes that table foesnt exist
-if f:
-    c.execute("DROP TABLE peeps;") # Gets rid of peeps table if it already exists
-    c.execute("DROP TABLE courses;")
-    c.execute("DROP TABLE occupations;") # Gets rid of courses table if it already exists
-    makeTable("peeps.csv")
-    makeTable("courses.csv")
-    makeTable("occupations.csv") #run for both csv files
-    c.execute("SELECT * FROM courses")
-    print(c.fetchall())
-    c.execute("SELECT * FROM peeps")
-    print(c.fetchall()) #print data from each table
-    c.execute("SELECT * FROM occupations")
-    print(c.fetchall())
-    f = False
-else:
-    c.execute("DROP TABLE peeps;") # Gets rid of peeps table if it already exists
-    c.execute("DROP TABLE courses;")
-    c.execute("DROP TABLE occupations;") # Gets rid of courses table if it already exists
-    makeTable("peeps.csv")
-    makeTable("courses.csv")
-    makeTable("occupations.csv") #run for both csv files
-    c.execute("SELECT * FROM courses")
-    print(c.fetchall())
-    c.execute("SELECT * FROM peeps")
-    print(c.fetchall()) #print data from each table
-    c.execute("SELECT * FROM occupations")
-    print(c.fetchall()) #print data from each table
+#creates table and SQL statement to be executed for creating peeps table
+comm_peeps = """
+CREATE TABLE mypeeps(
+    id INTEGER PRIMARY KEY,
+    name TEXT,
+    age INTEGER)
+"""
+#found out we didn't need one for occupations
+#comm_occupations = """
+#CREATE TABLE jobs(
+#    job TEXT,
+#    percentage INTEGER)
+#"""
 
+comm_courses = """
+CREATE TABLE classes(
+    name TEXT,
+    mark INTEGER,
+    pd INTEGER)
+"""
+#execute command lines creating tables
+c.execute(comm_peeps)
+#c.execute(comm_occupations)
+c.execute(comm_courses)
+
+#populating table - peeps
+with open("peeps.csv") as file:
+    read = csv.DictReader(file)
+    for r in read:
+        comm_peeps = "INSERT INTO mypeeps(name, age, id) VALUES('" + r['name'] + "', " + r['age'] + ", " + r['id'] + ");"
+        c.execute(comm_peeps)
+
+#populating table-comm_occupations------defunct
+#with open("occupations.csv") as file:
+#    read = csv.DictReader(file)
+#    for r in read:
+#        comm_occupations = "INSERT INTO jobs(Job Class, Percentage) VALUES('" + r['Job Class'] + "', " + r['Percentage'] + ");"
+#        c.execute(comm_occupations)
+
+#populating table-comm_occupations
+with open("courses.csv") as file:
+    read = csv.DictReader(file)
+    for r in read:
+        comm_courses = "INSERT INTO classes(name, mark, pd) VALUES('" + r['code'] + "', " + r['mark'] + ", " + r['id'] + ");"
+        c.execute(comm_courses)
+#print data from each table
+c.execute("SELECT * FROM mypeeps")
+print(c.fetchall())
+c.execute("SELECT * FROM classes")
+print(c.fetchall())
+#c.execute("SELECT * FROM jobs")
+#print(c.fetchall())
 
 db.commit() #save changes
 db.close()  #close database
