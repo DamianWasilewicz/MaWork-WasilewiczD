@@ -14,17 +14,15 @@ c = db.cursor()               #facilitate db ops
 
 def makeTable(filename):
     with open(filename, 'r') as csvfile: # open csv file
-        courses = csv.DictReader(csvfile) #read it in as a set of dictionaries
-        #print(reader.get(0))
-        fir = 0 #to only perform this on the first iteration
+        courses = csv.DictReader(csvfile) #read it
+        fir = 0 #prevents it from being run after first time
         for rec in courses:
             if fir == 0:
-                comm = "CREATE TABLE " + filename[:len(filename) - 4] + " (" #initialize name of table and beginning of creation statement
+                comm = "CREATE TABLE " + filename[:len(filename) - 4] + " (" #initialize beginning of create statement
                 for col in rec.keys():
-                    comm += "'" + col + "' BLOB, " #add each column in generically typed
-                    #print(command[:len(command) - 2] + ")")
-                c.execute(comm[:len(comm) - 2] + ")") #execute commmand
-                fir = 1; #make sure this section does not run again
+                    comm += "'" + col + "' BLOB, " #BLOB generically typed
+                c.execute(comm[:len(comm) - 2] + ")")
+                fir = 1; #make sure it does not run again
             comm2 = "INSERT INTO " + filename[:len(filename) - 4] + " VALUES (" #initialize insert statement with table name
             for info in rec.keys():
                 comm2 += "'" + rec[info] + "', " #add each column of data to statement
