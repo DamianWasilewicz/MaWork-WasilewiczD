@@ -1,6 +1,6 @@
 #The Wicked W's - Jeffrey Wu & Damian Wasilewicz
 #SoftDev1 pd0
-#SQLITE3 BASICS
+#K #16: No Trouble
 #2018-10-04
 
 import sqlite3   #enable control of an sqlite database
@@ -26,8 +26,9 @@ def makeTable(filename):
             comm2 = "INSERT INTO " + filename[:len(filename) - 4] + " VALUES (" #initialize insert statement with table name
             for info in rec.keys():
                 comm2 += "'" + rec[info] + "', " #add each column of data to statement
-            c.execute(comm2[:len(comm2) - 2] + ")") #execute command
+            c.execute(comm2[:len(comm2) - 2] + ")") #execute command with string
 f = True
+#to deal with error where it sometimes returns error sahing table already exists and skmetimes that table foesnt exist
 if f:
     c.execute("DROP TABLE peeps;") # Gets rid of peeps table if it already exists
     c.execute("DROP TABLE courses;")
