@@ -24,7 +24,8 @@ comm_peeps = """
 CREATE TABLE mypeeps(
     id INTEGER PRIMARY KEY,
     name TEXT,
-    age INTEGER)
+    age INTEGER,
+    osis INTEGER)
 """
 #found out we didn't need one for occupations
 #comm_occupations = """
