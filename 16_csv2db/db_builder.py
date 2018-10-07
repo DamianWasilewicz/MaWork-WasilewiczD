@@ -35,7 +35,8 @@ CREATE TABLE mypeeps(
 
 comm_courses = """
 CREATE TABLE classes(
-    name TEXT PRIMARY KEY,
+    id INTEGER PRIMARY KEY,
+    name TEXT,
     mark INTEGER,
     pd INTEGER)
 """
