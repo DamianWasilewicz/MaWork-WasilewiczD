@@ -1,0 +1,13 @@
+def get_grade(osis_num, counter):
+    comm_grade = "SELECT mark FROM classes WHERE osis ="
+    comm_grade += str(osis_num)
+    c.execute(comm_grade)
+    answer = ""
+    while counter > - 1:
+        answer = answer + str(get_grade(1).fetchall()[counter][0])
+    return answer
+
+def get_length(osis_num):
+    comm_length = "SELECT count(*) FROM classes WHERE osis ="
+    comm_length += str(osis_num)
+    return c.execute(comm_length).fetchone()[0]
