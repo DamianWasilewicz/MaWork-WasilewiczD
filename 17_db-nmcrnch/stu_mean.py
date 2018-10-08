@@ -45,31 +45,70 @@ with open('templates/courses.csv', 'r') as file:
     for r in read:
         comm_courses = "INSERT INTO classes(name, mark, osis) VALUES('"+ r['code'] + "', " + r['mark'] + ", " + r['id'] + ");"
         c.execute(comm_courses)
-comm_grade = """
-    SELECT
-        mark
-    FROM
-        classes
-    WHERE
-        osis == 3
-    """
-def computeAvg():
-    list = c.execute(comm_grade)
-    number = list.fetchone()[0]
-    number2 = list.fetchone()[0]
-    print((number + number2)/ 2)
 
+#============================================================================
+
+osis_num = 1;
+
+counter = 2
+
+#get grades according to osis number
+def get_grade(osis_num):
+    comm_grade = "SELECT mark FROM classes WHERE osis ="
+    comm_grade += str(osis_num)
+    return c.execute(comm_grade)
+print (str(get_grade(1).fetchall()[counter][0]) + " " + str(get_grade(1).fetchall()[counter - 1][0]) + " " + str(get_grade(1).fetchall()[counter - 2][0]))
+
+def get_length():
+    comm_length = "SELECT count(*) FROM classes WHERE osis ="
+    comm_length += str(osis_num)
+    return c.execute(comm_length).fetchone()[0]
+
+#print get_length()
+
+#============= I AM HERE ===================================================
+
+# ISSUES WITH FETCHONE() AND GETGRADE
+#gets average according to osis number
+#def computeAvg(name):
+#    cur = get_grade(name)
+    #print cur
+#    length = get_length()
+#    print get_grade().fetchone()[0]
+    #return retVal/length
+
+#Create table for averages
 comm_avg = """
     CREATE TABLE IF NOT EXISTS avgs(
         id INTEGER PRIMARY KEY,
         name TEXT,
-        osis INTEGER,
-        avg INTEGER)
+        avg INTEGER,
+        osis INTEGER)
         """
-c.execute(comm_avg)
+
+#c.execute(comm_avg)
+comm_fetch = """
+    SELECT mypeeps.name FROM mypeeps, classes
+    WHERE mypeeps.id == classes.id
+    """
+c.execute(comm_fetch)
+p = c.fetchall()
+#print(p)
+
+#Populate avg table
+#while osis_num < 11:
+#    comm_getname = "SELECT name FROM mypeeps WHERE osis = "
+#    comm_getname += str(osis_num)
+#    name = c.execute(comm_getname)
+#    avg = computeAvg(name)
+#    comm_avgs = "INSERT INTO avgs(name, osis, avg) VALUES({n}{o}{a}).format(n = name[0], o = osis_num, a = avg)"
+#    osis_num += 1
+
+#display avg table
+comm_display_avg= "SELECT *FROM peeps_avg"
 
 #comm_avgs = "INSERT INTO avgs(name, osis, avg) VALUES('"+ 'sasha' + "', " + '3' + ", " + 'int(computeAvg())' + ");"
 #c.execute(comm_avgs)
+
 db.commit() #save changes
-computeAvg()
 db.close()  #close database
