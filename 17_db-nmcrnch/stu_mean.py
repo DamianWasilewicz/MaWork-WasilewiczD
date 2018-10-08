@@ -61,12 +61,12 @@ def get_grade(osis_num, counter):
         answer = answer + int((a[counter][0]))
         counter = counter - 1
     return answer
-
+#returns how many grades a student has
 def get_length(osis_num):
     comm_length = "SELECT count(*) FROM classes WHERE osis ="
     comm_length += str(osis_num)
     return c.execute(comm_length).fetchone()[0]
-
+#returns avg grade of a student given his id
 def get_avg(osis_num):
     return int(get_grade(osis_num, get_length(osis_num) - 1)) / int(get_length(osis_num))
 
@@ -80,17 +80,19 @@ comm_avg = """
         osis INTEGER)
         """
 c.execute(comm_avg)
+
+#_________________Everything up to here works I think
 #Populate avg table
 osis_num = 1
-while osis_num < 11:
-    comm_getname = "SELECT name FROM mypeeps WHERE osis = "
-    comm_getname += str(osis_num)
-    c.execute(comm_getname)
-    name = c.fetchall()
-    avg = get_avg(osis_num)
-    comm_peeps = "INSERT INTO mypeeps(name, id, avg) VALUES('" + name[0] + "', " + osis_num + ", " + avg + ");"
-    c.execute(comm_peeps)
-    osis_num += 1
+#while osis_num < 11:
+#    comm_getname = "SELECT name FROM mypeeps WHERE osis = "
+#    comm_getname += str(osis_num)
+    #c.execute(comm_getname)
+    #name = c.fetchone()
+    #avg = get_avg(osis_num)
+    #comm_peeps = "INSERT INTO mypeeps(name, id, avg) VALUES('" + 'Sasha' + "', " + osis_num + ", " + avg + ");"
+    #c.execute(comm_peeps)
+    #osis_num += 1
 
 
 #display avg table
