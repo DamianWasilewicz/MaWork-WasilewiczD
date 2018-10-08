@@ -48,7 +48,6 @@ with open('templates/courses.csv', 'r') as file:
 
 #============================================================================
 
-osis_num = 1;
 
 counter = 2
 
@@ -59,10 +58,11 @@ def get_grade(osis_num):
     return c.execute(comm_grade)
 print (str(get_grade(1).fetchall()[counter][0]) + " " + str(get_grade(1).fetchall()[counter - 1][0]) + " " + str(get_grade(1).fetchall()[counter - 2][0]))
 
-def get_length():
+def get_length(osis_num):
     comm_length = "SELECT count(*) FROM classes WHERE osis ="
     comm_length += str(osis_num)
     return c.execute(comm_length).fetchone()[0]
+print(get_length(1))
 
 #print get_length()
 
