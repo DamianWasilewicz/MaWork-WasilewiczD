@@ -10,9 +10,8 @@ import os        #for deleting discobandit
 
 
 file = "discobandit";
-
-## If file exists, delete it ##
-#os.remove(file)
+#opens file in write mode, which turns it into a blank file
+open("discobandit.db",'w').close()
 
 
 DB_FILE = "discobandit.db"
@@ -100,13 +99,13 @@ while osis_num < 11:
     #print name
     avg = computeAvg(osis_num)
     #print avg
-    comm_pop = "INSERT INTO peeps_avgs(name, avg, osis) VALUES(\"" + name + "\", " + str(avg) + ", " + str(osis_num) + ");"
-    c.execute(comm_pop)
+    params = (None, name, avg, osis_num)
+    c.execute("INSERT INTO peeps_avgs VALUES(?,?,?,?)", params)
     osis_num += 1
 
 def add_course(nname, nmark, nosis):
-    commands = (nname, nmark, nosis)
-    c.execute("INSERT INTO classes(name, mark, osis) VALUES(?, ?, ?)", commands)
+    columns = (nname, nmark, nosis)
+    c.execute("INSERT INTO classes(name, mark, osis) VALUES(?, ?, ?)", columns)
 
 #display avg table
 comm_display_avg= "SELECT name, avg, osis FROM peeps_avgs"
@@ -115,7 +114,7 @@ ctr = 0
 #add a course to the table classes
 
 #while ctr < 11:
-#print display.fetchall()
+print display.fetchall()
     #ctr += 1
 
 #add a course to the table classes
