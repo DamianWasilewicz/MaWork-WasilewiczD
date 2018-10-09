@@ -115,7 +115,7 @@ ctr = 0
 #add a course to the table classes
 
 #while ctr < 11:
-print display.fetchall()
+#print display.fetchall()
     #ctr += 1
 
 #add a course to the table classes
