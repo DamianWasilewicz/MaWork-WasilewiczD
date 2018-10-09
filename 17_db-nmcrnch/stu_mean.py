@@ -61,14 +61,14 @@ def get_grade(osis_num):
     comm_grade = "SELECT mark FROM classes WHERE osis ="
     comm_grade += str(osis_num)
     return c.execute(comm_grade).fetchall()
-print get_grade(osis_num)
+#print get_grade(osis_num)
 
 #returns how many grades a student has
 def get_length(osis_num):
     comm_length = "SELECT count(*) FROM classes WHERE osis ="
     comm_length += str(osis_num)
     return c.execute(comm_length).fetchone()[0]
-print get_length(osis_num)
+#print get_length(osis_num)
 
 #gets average according to osis number
 def computeAvg(osis_num):
@@ -80,7 +80,7 @@ def computeAvg(osis_num):
         retVal += int(cur[ctr][0])
         ctr -= 1
     return int(float(retVal/length))
-print computeAvg(osis_num)
+#print computeAvg(osis_num)
 
 #Create table for averages
 comm_avg = """
@@ -104,20 +104,29 @@ while osis_num < 11:
     c.execute(comm_pop)
     osis_num += 1
 
+def add_course(nname, nmark, nosis):
+    commands = (nname, nmark, nosis)
+    c.execute("INSERT INTO classes(name, mark, osis) VALUES(?, ?, ?)", commands)
+
 #display avg table
-comm_display_avg= "SELECT *FROM peeps_avgs"
+comm_display_avg= "SELECT name, avg, osis FROM peeps_avgs"
 display = c.execute(comm_display_avg)
 ctr = 0
-while ctr < 10:
-    print display.fetchone()
-    ctr += 1
+#add a course to the table classes
+
+#while ctr < 11:
+print display.fetchall()
+    #ctr += 1
 
 #add a course to the table classes
-def add_course(nname, nmark, nosis):
-    comm_add_course = "INSERT INTO classes(name, mark, osis) VALUES(\"" + nname + "\", " + str(nmark) + ", " + str(nosis) + ");"
-    c.execute(comm_add_course)
-
 add_course("IT", 100, 11)
+add_course("FunTime", 120, 15)
+add_course("HaxorsClass", 400, 18)
+add_course("Gym", 500, 1000)
+comm_display_classes = "SELECT * FROM classes"
+display_classes = c.execute(comm_display_classes)
+
+# display_classes.fetchall()
 
 db.commit() #save changes
 db.close()  #close database
