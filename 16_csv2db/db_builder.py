@@ -68,9 +68,9 @@ with open("courses.csv") as file:
         c.execute(comm_courses)
 #print data from each table
 c.execute("SELECT * FROM mypeeps")
-print(c.fetchall())
+#print(c.fetchall())
 c.execute("SELECT * FROM classes")
-print(c.fetchall())
+#print(c.fetchall())
 #c.execute("SELECT * FROM jobs")
 #print(c.fetchall())
 
