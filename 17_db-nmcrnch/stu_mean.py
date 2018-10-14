@@ -54,7 +54,9 @@ with open('data/courses.csv', 'r') as file:
         c.execute(comm_courses)
 
 #============================================================================
-
+comm_display_classes= "SELECT * FROM classes"
+displayC = c.execute(comm_display_classes).fetchall()
+#print(displayC)
 osis_num = 1;
 
 #get grades according to osis number
@@ -112,6 +114,7 @@ def add_course(nname, nmark, nosis):
     c.execute("INSERT INTO classes(name, mark, osis) VALUES(?,?,?)", columns)
 
 add_course("IT", 100, 11)
+
 
 db.commit() #save changes
 db.close()  #close database
