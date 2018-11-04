@@ -1,47 +1,63 @@
 <html>
   <head>
     <style>
-      body {
-        background-color:#808080;
-      }
-      h1 {
-        color: #FFFFFF;
-        text-align:center;
-        background-color: #A9A9A9;
-      }
-      div {
-        column-count:1;
-        float:left;
-        width:50%;
-      }
-      div {
-        column-count:1
-      }
-    <title>foo title</title>
+    body {
+      background-color:#808080;
+    }
+    h1 {
+       width: 110%;
+       font-size: 40px;
+       text-align:center;
+       padding: 15px;
+       background-color: #A9A9A9;
+       color: white;
+    }
+    #left-column {
+      float:left;
+      width:20%;
+      font-size: 22px;
+    }
+    #second-column {
+      width: 80%;
+      font-size: 22px;
+      column-count: 1;
+      display:block;
+    }
+    #copyright {
+      padding:30px;
+      width: 96%;
+      color: #A9A9A9;
+      text-align:right;
+      background-color: DimGray;
+      font-size:20px;
+      float:bottom;
+      position:fixed;
+      left:0;
+      bottom: 10;
+      right:0;
+      display:block;
+    }
     </style>
+    <title>foo title</title>
   </head>
-  <!--change background to green -->
-  <body style = "background-color: #808080">
-    <!--make heading orange with gray backround in the center -->
-    <h1 style = "text-align:center;background-color: #A9A9A9; color: #FFFFFF">foo heading 1</h1>
-    <!--make a column on the left that fits half the page -->
-    <div style = "column-count:1;float:left;width:50%">
+  <body>
+    <h1>h1 foo</h1>
+    <div id = "left-column">
     <h3>nav foo</h3>
     <ul>
       <!--links to cat breeds -->
-      <li><a href="http://cfa.org/Breeds/BreedsAB/BritishShorthair.aspx">dis</a></li>
-      <li><a href="http://cfa.org/breeds/breedssthrut/scottishfold.aspx">dat</a></li>
-      <li><a href="http://cfa.org/Breeds/BreedsKthruR/Persian.aspx">de udda ting</a></li>
+      <a href="http://cfa.org/Breeds/BreedsAB/BritishShorthair.aspx">dis</a><br>
+      <a href="http://cfa.org/breeds/breedssthrut/scottishfold.aspx">dat</a><br>
+      <a href="http://cfa.org/Breeds/BreedsKthruR/Persian.aspx">de udda ting</a><br>
     </ul>
     </div>
-    <!--second column of cat lorem ipsum -->
-    <div style = "column-count:1">
+    <div id = "second-column">
     <h2>main foo heading</h2>
     <p>Stretch stare at imaginary bug but scratch chase mice cuddle no cuddle cuddle love scratch scratch and leave fur on owners clothes, refuse to leave cardboard box. Lick the plastic bag my cat stared at me he was sipping his tea, too yet i like big cats and i can not lie ccccccccccccaaaaaaaaaaaaaaatttttttttttttttttssssssssssssssss, kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff or scoot butt on the rug or run outside as soon as door open. Curl into a furry donut lick left leg for ninety minutes, still dirty or find a way to fit in tiny box lick face hiss at owner, pee a lot, and meow repeatedly scratch at fence purrrrrr eat muffins and poutine until owner comes back. Pet me pet me pet me pet me, bite, scratch, why are you petting me get my claw stuck in the dog's ear run in circles, or prance along on top of the garden fence, annoy the neighbor's dog and make it bark or sit in box. Bite off human's toes stand in doorway, unwilling to chose whether to stay in or go out cats go for world domination.
       <br>
       <br>
     </div>
     <!--move copyright to right side w/ a red background -->
-      <div style="text-align:right;background-color:red;font-size:20px">Copyright &copy; 2016 Clyde "Thluffy" Sinclair
+      <div id = "copyright" >Copyright &copy; 2015 Clyde "Thluffy" Sinclair>
       </div>
   </body>

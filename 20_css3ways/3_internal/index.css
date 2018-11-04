@@ -2,15 +2,30 @@ body {
   background-color:#808080;
 }
 h1 {
-  color: #FFFFFF;
-  text-align:center;
-  background-color: #A9A9A9;
+   width: 100%;
+   font-size: 40px;
+   text-align:center;
+   padding: 15px;
+   background-color: #A9A9A9;
+   color: white;
 }
-div {
-  column-count:1;
+#left-column {
   float:left;
-  width:50%;
+  width:20%;
+  font-size: 22px;
 }
-div {
-  column-count:1
+#second-column {
+  width: 70%;
+  font-size: 22px;
+  column-count: 1;
+}
+#copyright {
+  padding:30px;
+  width: 96%;
+  color: #A9A9A9;
+  text-align:right;
+  background-color: DimGray;
+  font-size:20px;
+  bottom:10px;
+  position:fixed;
 }
