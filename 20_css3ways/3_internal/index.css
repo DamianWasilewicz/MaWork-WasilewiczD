@@ -1,0 +1,16 @@
+body {
+  background-color:#808080;
+}
+h1 {
+  color: #FFFFFF;
+  text-align:center;
+  background-color: #A9A9A9;
+}
+div {
+  column-count:1;
+  float:left;
+  width:50%;
+}
+div {
+  column-count:1
+}
