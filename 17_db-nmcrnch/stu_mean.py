@@ -105,13 +105,15 @@ while osis_num < length +1:
 comm_display_avg= "SELECT * FROM peeps_avgs"
 display = c.execute(comm_display_avg).fetchall()
 #print display
-
+comm_display_classes = "SELECT * FROM classes"
+displayc = c.execute(comm_display_classes).fetchall()
 #add a course to the table classes
 def add_course(nname, nmark, nosis):
     columns = (nname, nmark, nosis)
     c.execute("INSERT INTO classes(name, mark, osis) VALUES(?,?,?)", columns)
 
 add_course("IT", 100, 11)
+#print(displayc)
 
 db.commit() #save changes
 db.close()  #close database
