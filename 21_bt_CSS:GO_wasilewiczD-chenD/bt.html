@@ -1,0 +1,143 @@
+<!-- CSS:GO-Dennis Chen && Damian Wasilewicz
+#SoftDev1 pd 6
+K #21: Who Does Frame Work For? 
+2018-11-07  -->
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- link to CDN, allows for access to all content without need for local copy -->
+  <!-- includes code for css files -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+  <!-- in general bootstrap's use of containers allows for easy customization-->
+  <!-- if set to container-fluid, it takes up entire width of screen. If not, takes up specified amount-->
+  <div class="container-fluid">
+    <!-- jumbotron is a cool component that extends how much of the viewport something takes up,
+    in order to call extra attention to a key component-->
+    <div class="jumbotron">
+      <div class = "text-center">
+        <h1>Dogs</h1>
+        <p>Dogs are awesome</p>
+      </div>
+    </div>
+  </div>
+  <!-- navbar at the top with a brand named dogs and links -->
+  <!-- boostrap allows for easy creation of navbars and navpills-->
+  <nav class="navbar navbar-expand-sm bg-light navbar-light">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">DOGS</a>
+      </div>
+      <!-- collapsable button that appears when the window strinks-->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class = "collapse navbar-collapse" id = "collapsibleNavbar">
+        <ul class="navbar-nav">
+          <li class = "nav-item"><a class = "nav-link" href="#">Beagle</a></li>
+          <li class = "nav-item"><a class = "nav-link" href="#">Bulldog</a></li>
+          <li class = "nav-item"><a class = "nav-link" href="#">Golden Retriever</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Circular image of dog -->
+  <!-- easy to input images -->
+  <div class="container">
+    <div class = "text-center">
+    <h1>Dogs</h1>
+      <img src="https://www.guidedogs.org/wp-content/uploads/2018/01/Mobile.jpg" class="rounded-circle" alt="Cinque Terre" width="304" height="236">
+    </div>
+  </div>
+  <!-- Dog lorem ipsum with text edits in the middle -->
+    <p><small>Doggo ipsum pats heckin heckin good boys and</small> girls most angery pupper I have ever seen <strong>tungg, smol borking doggo with a long snoot</strong> for pats very good spot pupperino.
+       Such treat <em>extremely cuuuuuute super chub many</em> pats floofs big ol pupper, lotsa <mark>pats heckin angery woofer many pats most angery pupper I have ever seen, </mark>waggy wags boofers doggorino heckin angery woofer.
+       Doing me a frighten <del>long water shoob long woofer most angery</del> pupper I have ever seen tungg, what a nice floof <u>bork mlem, ur givin me a spook </u>long water shoob length boy. H*ck dat tungg tho you are doing me a frighten floofs doge, borkdrive adorable doggo.
+    </p>
+    <!-- drop down menu-lists 3 breeds -->
+    <div class = "dropdown">
+      <!-- uses popper.js, third party library, for viewport detection and dynamic positioning-->
+      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dog Breeds
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="#"> Poodle</a></li>
+          <li><a href="#"> German Shepard</a></li>
+          <li><a href="#"> Shiba Inu</a></li>
+        </ul>
+      </div>
+    </div>
+    <br>
+    <!--form that doesn't go anywhere (sticking to one page), lets you type in things -->
+    <form action="">
+    <div class="form-group">
+      <label for="dog">Dog</label>
+      <input type="dog" class="form-control" id="doge" placeholder="Enter Dog Breed" name="dog">
+    </div>
+    </form>
+    <!-- grid system -->
+    <!-- One of the cool parts of bootstrap is its use of the grid system and flexbox when defining how much space columns take up
+    If column sizes arent specified, adjacent columns will take up equal space
+    (i.e, two components each take up 50%, three 33.3%, etc.)
+    Column widths are fluid and relative so that they are properly sized
+    Breakpoints make widths responsive and set sizes (as with col-sm-2 below)-->
+    <!-- equally wide columns -->
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h2>Bulldog</h2>
+          <li> Compact </li>
+          <li> That right kind of cute-ugly </li>
+        </div>
+        <div class="col">
+          <h2>Dachsund</h2>
+          <li> Sounds like dashing which they are </li>
+          <li> Big head and small body-ideal proportions </li>
+        </div>
+        <div class="col">
+          <h2>Boxer</h2>
+          <li> A fighter</li>
+          <li> Perky ears </li>
+        </div>
+        <div class="col">
+          <h2>Pug</h2>
+          <li> Big eyes</li>
+          <li> Mblep </li>
+        </div>
+        <div class="col">
+          <h2>Golden Retriever</h2>
+          <li> Golden boy</li>
+          <li> Good fetching skills </li>
+        </div>
+        <div class="col">
+          <h2>Mix-breed</h2>
+          <li> Endless possibilities</li>
+          <li> Diverse </li>
+        </div>
+        </div>
+      </div>
+    <!-- small column for shih tzus-->
+    <div class = "row">
+      <div class = "col-sm-2 bg-success">
+        <h2>Shih Tzu</h2>
+        <ul>
+          <li> Small </li>
+          <li> Furry </li>
+          <li> Nice </li>
+        </ul>
+      </div>
+      <!-- large column for long dog name -->
+      <div class = "col-sm-10 bg-warning">
+        <h2>Cavalier King Charles Spaniel</h2>
+        <ul>
+          <li> Very long name </li>
+          <li> Playful </li>
+          <li> Droopy Ears </li>
+        </ul>
+      </div>
+    </div>
+    </div>
+  </body>
+</html>
