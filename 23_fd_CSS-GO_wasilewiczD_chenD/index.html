@@ -1,0 +1,116 @@
+<!-- CSS:GO-Dennis Chen && Damian Wasilewicz
+   #SoftDev1 pd 6
+   K #23: How the Other Half Lives?
+   2018-11-07  -->
+<!DOCTYPE html>
+<html>
+   <head>
+     <title>Foundation</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.0/dist/css/foundation.min.css">
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x">
+        <div class="large-12 cell">
+          <h1>Foundation</h1>
+        </div>
+      </div>
+    <div class= "top-bar">
+      <div class = "top-bar-left">
+        <ul class = "menu">
+          <li class = "menu-text" data-magellan>Nav Bar</li>
+          <li><a href = '#'> First Link</a></li>
+          <li><a href = '#'> Second Link</a></li>
+          <li><a href = '#'> Third Link</a></li>
+          <li><a href = '#'> Fourth Link</a></li>
+        </ul>
+      </div>
+      <div class = "top-bar-right">
+        <ul class = "menu">
+          <li><input type = "search" placeholder = "Search here"></li>
+          <li><button type = "button" class= "button">Click to search</button></li>
+      </div>
+    </div>
+    <br>
+    <h1>Grids</h1>
+    To play with the grid system, start from full screen and try making the screen smaller.
+    You will observe the paragraphs shifting how they are arranged, from a 1:1 ratio to 2:1 and 1:2.
+    The left cell is 6/9/3 and the right cell is 6/3/9.
+    The first number in both denotes how many columns that each cell takes up out of 12 since 12 columns is the default and most optimal.
+    So the left cell takes 6/12 and the right cell takes 6/12 when the window is large.
+    The second number denotes what they do when the window is medium sized and the third number denotes what they do when the window is small sized.
+    See line 50-62.
+    <br>
+    <br>
+    <div class="grid-x grid-padding-x">
+      <div class="large-6 medium-9 small-3 cell">
+        <p>Lanyard matey long clothes haul wind bowsprit walk the plank Sea Legs fore snow barque smartly Nelsons folly chase cackle fruit Barbary Coast wherry keelhaul nipperkin pillage lugsail. Lateen sail mizzenmast ahoy crack Jennys tea cup square-rigged ho grog blossom yawl Jack Tar come about nipperkin fluke draft sheet mutiny skysail chandler jury mast overhaul six pounders. Swab ballast Davy Jones' Locker no prey, no pay wench heave to gangway belay hands lookout loot Sail ho ahoy coffer Corsair flogging main sheet Blimey grog blossom Jack Tar. Overhaul loaded to the gunwalls coxswain keelhaul lad scallywag reef nipper gally Barbary Coast hulk bounty wench belay salmagundi starboard no prey, no pay me brig stern.</p>
+      </div>
+      <div class="large-6 medium-3 small-9 cell">
+        <p>Six pounders Cat o'nine tails coffer Pieces of Eight brig chantey loaded to the gunwalls hempen halter lanyard yardarm chase guns swing the lead driver draft bounty port Jolly Roger tender pink warp. Skysail chase guns black jack six pounders Nelsons folly hands wench dead men tell no tales yardarm black spot quarterdeck grapple knave interloper fire in the hole Corsair poop deck league ho fluke. Admiral of the Black lee knave black jack transom swab parley execution dock take a caulk measured fer yer chains me gun bilge water doubloon draft overhaul sheet nipper pirate prow. Hornswaggle fire in the hole blow the man down hearties topgallant furl long boat crimp hardtack chase guns avast Gold Road spirits mizzen aft matey weigh anchor snow wench draft. </p>
+      </div>
+    </div>
+    <h1> Buttons!</h1>
+    <h3> Colors</h3>
+    <h5> Options: Primary, Secondary, Success, Alert, Warning</h5>
+    The class of button determines how the button appears. Refer to lines 58-62.
+    <br>
+    <button type="button" class="button primary">Primary Button</button>
+    <button type="button" class="button secondary">Secondary Button</button>
+    <button type="button" class="button success">Success Button </button>
+    <button type="button" class="button alert">Alert Button</button>
+    <button type="button" class="button warning">Warning Button</button>
+    <br>
+    <h3>Sizing</h3>
+    You can also choose the size of the button by choosing a size class.
+    Options:Tiny, Small, Large, Expanded <br>
+    <button type="button" class = "button tiny">Tiny Button</button>
+    <button type="button" class = "button small">Small Button</button>
+    <button type="button" class = "button">Default-size button</button>
+    <button type="button" class = "button large">Large Button</button>
+    <button type="button" class = "button expanded">Expanded Button</button>
+    <br>
+    <h3> Other buttons</h3>
+    Options: Hollow, Clear
+    The hollow class creates a button without a background but with a border present <br>
+    The clear class creates a button with neither a backgound nor a border <br>
+    The disabled class creates a class that you can't click on; it looks disable <br>
+    <button type="button" class = "button hollow">HollowButton</button>
+    <button type="button" class = "button clear">Clear Button</button>
+    <button type="button" class = "button disabled">Disabled Button</button>
+    <br>
+    You can also create a button with any combination of these classes. For example: <br>
+    <button type="button" class = "button large expanded alert hollow disabled">Large Expanded Alert Hollow Disabled</button>
+    <br>
+    <h1> Callouts </h1>
+    A callout is a type of container that creates a box with a border and styling features.
+    It has the same color and sizing options that can be found in buttons except tiny, expanded, hollow and clear.
+    See line 110-130
+    <div class="callout">
+      <h2>Heading</h2>
+        <p>hello world</p>
+            <a href="#">Link</a>
+    </div>
+    <div class="callout primary">
+            A Primary Callout
+    </div>
+    <div class="callout secondary">
+            A Secondary Callout
+    </div>
+    <div class="callout success">
+            A Success Callout
+    </div>
+    <div class="callout alert">
+            An Alert Callout
+    </div>
+    <div class="callout warning">
+            A Warning Callout
+    </div>
+    <div class="callout small">
+            A Small Callout
+    </div>
+    <div class="callout large">
+            A Large Callout
+    </div>
+  </body>
+</html>
