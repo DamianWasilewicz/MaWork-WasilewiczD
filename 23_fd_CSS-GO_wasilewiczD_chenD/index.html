@@ -1,7 +1,7 @@
 <!-- CSS:GO-Dennis Chen && Damian Wasilewicz
    #SoftDev1 pd 6
    K #23: How the Other Half Lives?
-   2018-11-07  -->
+   2018-11-10  -->
 <!DOCTYPE html>
 <html>
    <head>
@@ -112,5 +112,113 @@
     <div class="callout large">
             A Large Callout
     </div>
+    <h1>Tables!</h1>
+    Default Table: The rows are in a striped pattern
+    <table>
+      <thead>
+        <tr>
+          <th>Column Heading1</th>
+          <th>Column Heading2</th>
+          <th>Column Heading3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Row1Column1</td>
+          <td>Row1Column2</td>
+          <td>Row1Column3</td>
+        </tr>
+        <tr>
+          <td>Row2Column1</td>
+          <td>Row2Column2</td>
+          <td>Row2Column3</td>
+        </tr>
+        <tr>
+          <td>Row3Column1</td>
+          <td>Row3Column2</td>
+          <td>Row3Column3</td>
+        </tr>
+      </tbody>
+    </table>
+    Unstriped Table:Every row is the same color
+    <table class = "unstriped">
+      <thead>
+        <tr>
+          <th>Column Heading1</th>
+          <th>Column Heading2</th>
+          <th>Column Heading3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Row1Column1</td>
+          <td>Row1Column2</td>
+          <td>Row1Column3</td>
+        </tr>
+        <tr>
+          <td>Row2Column1</td>
+          <td>Row2Column2</td>
+          <td>Row2Column3</td>
+        </tr>
+        <tr>
+          <td>Row3Column1</td>
+          <td>Row3Column2</td>
+          <td>Row3Column3</td>
+        </tr>
+      </tbody>
+    </table>
+    Table with the class hover-when the mouse is hovered over a row, the row
+    gets highlighted.
+    <table class = "hover">
+      <thead>
+        <tr>
+          <th>Column Heading1</th>
+          <th>Column Heading2</th>
+          <th>Column Heading3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Row1Column1</td>
+          <td>Row1Column2</td>
+          <td>Row1Column3</td>
+        </tr>
+        <tr>
+          <td>Row2Column1</td>
+          <td>Row2Column2</td>
+          <td>Row2Column3</td>
+        </tr>
+        <tr>
+          <td>Row3Column1</td>
+          <td>Row3Column2</td>
+          <td>Row3Column3</td>
+        </tr>
+      </tbody>
+    </table>
+    You can put embed contents, which is content that imports another resource
+    into the document, in your website by having the class
+    "responsive-embed". For example: div class = "responsive-embed"
+    <div class = "responsive-embed">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d3024.
+      00146807341!2d-74.01605402011836!3d40.71798417943244!2m3!1f0!2f0!3f0!3m2!
+      1i1024!2i768!4f13.1!4m8!3e3!4m0!4m5!1s0x89c25a1db5f8b8c9%3A0xb5084500683f
+      46f9!2sStuyvesant+High+School%2C+345+Chambers+St%2C+New+York%2C+NY+10282!
+      3m2!1d40.7179842!2d-74.0138707!5e0!3m2!1sen!2sus!4v1542066121990"
+       width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
   </body>
+  Pagination allows users to go through pages of search results
+  <nav aria-label="Pagination">
+    <ul class="pagination">
+    	<li class="pagination-previous"><a href = "#" aria label = "Previous page">Previous <span class="show-for-sr">page</span></a></li>
+      <li class="current"><span class="show-for-sr">You're on page</span> 1</li>
+      <li><a href="#" aria-label="Page 2">2</a></li>
+      <li><a href="#" aria-label="Page 3">3</a></li>
+      <li><a href="#" aria-label="Page 4">4</a></li>
+      <li class="ellipsis" aria-hidden="true"></li>
+    	<li><a href="#" aria-label="Page 12">12</a></li>
+      <li><a href="#" aria-label="Page 13">13</a></li>
+      <li class="pagination-next"><a href="#" aria-label="Next page">Next <span class="show-for-sr">page</span></a></li>
+    </ul>
+  </nav>
 </html>
