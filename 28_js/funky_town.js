@@ -5,7 +5,7 @@
 
 
 var fibb = (num) => {
-  if (num == 0){
+  if (num == 0) {
       return 1
   }
     else {
@@ -20,7 +20,7 @@ var gcd = (a, b) => {
     a = c
   }
   var r = a % b
-  if ( r == 0){
+  if (r == 0) {
     return b;
   }
   else {
