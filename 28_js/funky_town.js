@@ -11,12 +11,15 @@
 
 var fibb = (num) => {
   if (num == 0) {
-      return 1
+      return 1;
   }
-    else {
-      return (fibb(num - 1)*num)
+    else if(num == 1) {
+      return 1;
     }
-}
+    else {
+     return fibb(num - 1) + fibb(num -2);
+    }
+};
 /**
   * Function that makes use of Euclid's algorithm to find the greatest
   * common denominator of two integers
@@ -37,7 +40,7 @@ var gcd = (a, b) => {
   else {
      return gcd(b, r);
   }
-}
+};
 
 /**
   * Helper, list of names
@@ -50,4 +53,4 @@ var list = ["Damian W.", "Sajed N.", "Tim M.", "Hello", "Jello", "Bello"]
 var randomStudent = () => {
   var number = Math.ceil(Math.random() * (list.length)) - 1
   return list[number]
-}
+};
