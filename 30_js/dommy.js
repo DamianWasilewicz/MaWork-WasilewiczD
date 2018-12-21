@@ -1,5 +1,16 @@
-
+// Seg Fault-- Damian Wasilewicz and Sajed Nahian
+//
+// SoftDev1 pd6
+//
+//K #30: Sequential Progression III: Season of the Witch
+//
+// 2018-12-21
 // Phase III
+
+/*
+Retrieves list and button, adds event listener to button that creates new list item,
+increments var num, and appends new item to list
+*/
 var list = document.getElementById("thelist")
 var button = document.getElementById("b")
 var num = 8;
@@ -9,7 +20,10 @@ button.addEventListener ('click', function (e) {
     list.appendChild(item)
 })
 
-
+/*
+@argument (itemText)-takes in string that will appear on item in browser
+@return item
+*/
 var createListItem = function (itemText) {
   var item = document.createElement("li")
   item.innerHTML = itemText
@@ -18,7 +32,8 @@ var createListItem = function (itemText) {
   item.addEventListener('click', clickItem)
   return item
 }
-
+/* functions that determine what text appears in heading, depending on whether the mouse
+is on an item or off */
 var heading = document.getElementById("h")
 var items = document.getElementsByTagName("li")
 
@@ -42,6 +57,8 @@ for (var i = 0; i < items.length; i++) {
 }
 
 // Phase IV
+/*upon clicking fibb button, values at increasing indexes of the fibbonaci sequence appears
+*/
 var fibList = document.getElementById("fiblist")
 var fibButton = document.getElementById("fb")
 var nextFib = 1;
@@ -58,3 +75,4 @@ fibButton.addEventListener('click', function () {
   fibListElement.innerHTML = getFibNumber(nextFib++)
   fibList.appendChild(fibListElement)
 })
+
